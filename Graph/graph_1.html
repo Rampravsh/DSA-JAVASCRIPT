@@ -34,6 +34,16 @@
             return item != v1;
           });
         }
+        revoveVertex(vertex) {
+          if (!this.data[vertex]) {
+            return;
+          }
+          for (let item of this.data[vertex]) {
+            // console.log(item)
+            this.removeEdge(vertex, item);
+          }
+          delete this.data[vertex];
+        }
       }
 
       const graph1 = new Graph();
@@ -46,7 +56,9 @@
       graph1.addEdge("b", "c");
       graph1.addEdge("b", "d");
 
-      graph1.removeEdge("a", "b");
+      //   graph1.removeEdge("a", "b");
+
+      graph1.revoveVertex("a");
       console.log(graph1.data);
     </script>
   </head>
